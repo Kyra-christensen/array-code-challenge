@@ -121,11 +121,10 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-
-    return arr.map(item => {
-        const shout = item;
-        return shout.toUpperCase();
-    });
+    return arr.map(eachPet => ({
+        name: eachPet.name.toUpperCase(),
+        type: eachPet.type
+    }));
 }
 
 
@@ -136,7 +135,9 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    const stringArr = arr.map(pet => pet.name + pet.type);
+
+    return stringArr;
 }
 
 /*
@@ -149,7 +150,8 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    return arr.filter(pet => name === pet.name);
+    
 }
 
 /*
@@ -175,7 +177,10 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map(pet => [
+        ['name', pet.name],
+        ['type', pet.type]
+    ]);
 }
 
 ////////////////////////////////////////////////////////
